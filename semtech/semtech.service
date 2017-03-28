@@ -1,0 +1,12 @@
+[Unit]
+Description=Semtech LoRa Gateway
+
+[Service]
+WorkingDirectory=/opt/semtech/bin/
+ExecStart=/opt/semtech/bin/start.sh
+SyslogIdentifier=semtech
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
