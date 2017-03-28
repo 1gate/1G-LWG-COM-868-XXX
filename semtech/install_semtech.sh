@@ -50,3 +50,12 @@ cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
 ./packet_forwarder/lora_pkt_fwd/update_gwid.sh ./bin/local_conf.json
 
 echo "Installation completed."
+
+# Start packet forwarder as a service
+cp ./start.sh $INSTALL_DIR/bin/
+cp ./semtech.service /lib/systemd/system/
+systemctl enable semtech.service
+
+echo "The system will reboot in 5 seconds..."
+sleep 5
+shutdown -r now
