@@ -41,8 +41,8 @@ popd
 
 # Symlink
 if [ ! -d bin ]; then mkdir bin; fi
-if [ -f ./bin/lora_pkt_fwd ]; then rm ./bin/lora_pkt_fwd; fi
-ln -s $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/lora_pkt_fwd ./bin/lora_pkt_fwd
+if [ -f ./bin/semtech_pkt_fwd ]; then rm ./bin/semtech_pkt_fwd; fi
+ln -s $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/lora_pkt_fwd ./bin/semtech_pkt_fwd
 cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.basic ./bin/global_conf.json
 cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
 

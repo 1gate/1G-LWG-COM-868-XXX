@@ -1,10 +1,10 @@
 [Unit]
-Description=Semtech LoRa Gateway
+Description=1GATE LoRaWAN Gateway
 
 [Service]
 WorkingDirectory=/opt/semtech/bin/
 ExecStart=/opt/semtech/bin/start.sh
-SyslogIdentifier=semtech
+SyslogIdentifier=1gate
 Restart=on-failure
 RestartSec=5
 
