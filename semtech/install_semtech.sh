@@ -49,6 +49,8 @@ cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
 # Reset gateway ID based on MAC
 ./packet_forwarder/lora_pkt_fwd/update_gwid.sh ./bin/local_conf.json
 
+popd
+
 echo "Installation completed."
 
 # Start packet forwarder as a service
