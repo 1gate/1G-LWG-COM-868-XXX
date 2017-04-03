@@ -13,7 +13,7 @@ rm -rf *
 
 # Build lora gateway libraries
 if [ ! -d lora_gateway ]; then
-    git clone https://github.com/Lora-net/lora_gateway.git
+    git clone https://github.com/1gate/lora_gateway.git
     pushd lora_gateway
 else
     pushd lora_gateway
@@ -27,7 +27,7 @@ popd
 
 # Build packet forwarder
 if [ ! -d packet_forwarder ]; then
-    git clone https://github.com/Lora-net/packet_forwarder.git
+    git clone https://github.com/1gate/packet_forwarder.git
     pushd packet_forwarder
 else
     pushd packet_forwarder
