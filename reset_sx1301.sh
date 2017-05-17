@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script is intended to be used on 1GATE LoRaWAN Basic and Premium Gateway, it performs
+# This script is intended to be used on 1GATE LoRaWAN Compact and Premium Gateway, it performs
 # the following actions:
 #
 #       - export/unexport GPIO25 used to reset the SX1301 chip

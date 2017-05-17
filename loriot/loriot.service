@@ -1,0 +1,12 @@
+[Unit]
+Description=1GATE LoRaWAN Gateway
+
+[Service]
+WorkingDirectory=/opt/loriot/bin/
+ExecStart=/opt/loriot/bin/start.sh
+SyslogIdentifier=1gate
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
