@@ -10,7 +10,7 @@ fi
 
 echo "Semtech Installer"
 
-# Create the required install directory and make sure it is clean
+# Create the required install directory
 INSTALL_DIR="/opt/semtech"
 if [ ! -d "$INSTALL_DIR" ]; then mkdir $INSTALL_DIR; fi
 pushd $INSTALL_DIR

@@ -1,5 +1,5 @@
 [Unit]
-Description=1GATE LoRaWAN Gateway
+Description=1GATE / Semtech Packet Forwarder
 
 [Service]
 WorkingDirectory=/opt/semtech/bin/

@@ -1,0 +1,12 @@
+[Unit]
+Description=1GATE / The Things Network Packet Forwarder
+
+[Service]
+WorkingDirectory=/opt/ttn/bin/
+ExecStart=/opt/ttn/bin/start.sh
+SyslogIdentifier=1GATE Gateway
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
