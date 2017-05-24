@@ -29,6 +29,7 @@ popd
 echo "Installation completed."
 
 # Start packet forwarder as a service
+cp ./reset_lgw.sh $INSTALL_DIR/bin/
 cp ./start.sh $INSTALL_DIR/bin/
 cp ./loriot.service /lib/systemd/system/
 # systemctl enable loriot.service

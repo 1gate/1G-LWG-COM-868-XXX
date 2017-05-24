@@ -52,14 +52,15 @@ cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.basic 
 #cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.beacon ./bin/global_conf.json
 cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
 
-# Reset gateway ID based on MAC
-./packet_forwarder/lora_pkt_fwd/update_gwid.sh ./bin/local_conf.json
-
 popd
+
+# Reset gateway ID based on MAC
+./update_gwid.sh ./$INSTALL_DIR/bin/local_conf.json
 
 echo "Installation completed."
 
 # Start packet forwarder as a service
+cp ./reset_lgw.sh $INSTALL_DIR/bin/
 cp ./start.sh $INSTALL_DIR/bin/
 cp ./semtech.service /lib/systemd/system/
 # systemctl enable semtech.service

@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 # This script is a helper to update the hostname of the gateway
 

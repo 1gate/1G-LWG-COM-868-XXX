@@ -3,12 +3,6 @@
 # Reset SX1301
 
 # GPIO Header pin 22 (GPIO25)
-#gpio -g mode 25 out
-#gpio -g write 25 1
-#sleep 5
-#gpio -g write 25 0
-
-# GPIO Header pin 22 (GPIO25)
 echo "25" > /sys/class/gpio/export
 echo "out" > /sys/class/gpio/gpio25/direction
 echo "1" > /sys/class/gpio/gpio25/value
