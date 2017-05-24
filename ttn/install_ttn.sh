@@ -51,17 +51,18 @@ popd
 if [ ! -d bin ]; then mkdir bin; fi
 if [ -f ./bin/ttn_pkt_fwd ]; then rm ./bin/ttn_pkt_fwd; fi
 ln -s $INSTALL_DIR/packet_forwarder/poly_pkt_fwd/poly_pkt_fwd ./bin/ttn_pkt_fwd
-
 cp -f ./packet_forwarder/poly_pkt_fwd/global_conf.json ./bin/global_conf.json
 cp -f ./packet_forwarder/poly_pkt_fwd/local_conf.json ./bin/local_conf.json
 
 popd
 
+# Reset gateway ID based on MAC
 ./update_gwid ./$INSTALL_DIR/bin/local_conf.json
 
 echo "Installation completed."
 
 # Start packet forwarder as a service
+cp ./reset_lgw.sh $INSTALL_DIR/bin/
 cp ./start.sh $INSTALL_DIR/bin/
 cp ./ttn.service /lib/systemd/system/
 #systemctl enable ttn-gateway.service
