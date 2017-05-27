@@ -2,11 +2,14 @@
 Description=1GATE / The Things Network Packet Forwarder
 
 [Service]
+TimeoutStartSec=infinity
+Type=simple
+TimeoutSec=infinity
 WorkingDirectory=/opt/ttn/bin/
 ExecStart=/opt/ttn/bin/start.sh
-SyslogIdentifier=1GATE Gateway
-Restart=on-failure
-RestartSec=5
+SyslogIdentifier=1GATE/TTN Gateway
+Restart=always
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

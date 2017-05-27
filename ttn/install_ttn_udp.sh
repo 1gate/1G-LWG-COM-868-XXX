@@ -8,22 +8,25 @@ if [ $UID != 0 ]; then
     exit 1
 fi
 
-echo "Semtech Installer"
+echo "TTN Installer"
 
-# Create the required install directory
-INSTALL_DIR="/opt/semtech"
+# Install LoRaWAN packet forwarder repositories
+INSTALL_DIR="/opt/ttn"
 if [ ! -d "$INSTALL_DIR" ]; then mkdir $INSTALL_DIR; fi
 pushd $INSTALL_DIR
 
 # Build lora gateway libraries
 if [ ! -d lora_gateway ]; then
-    git clone https://github.com/1gate/lora_gateway.git
+    git clone -b legacy https://github.com/TheThingsNetwork/lora_gateway.git
     pushd lora_gateway
 else
     pushd lora_gateway
+    git fetch origin
+    git checkout legacy
     git reset --hard
-    git pull
 fi
+
+sed -i -e 's/PLATFORM= kerlink/PLATFORM= imst_rpi/g' ./libloragw/library.cfg
 
 make
 
@@ -31,26 +34,25 @@ popd
 
 # Build packet forwarder
 if [ ! -d packet_forwarder ]; then
-    git clone https://github.com/1gate/packet_forwarder.git
+    git clone -b legacy https://github.com/TheThingsNetwork/packet_forwarder.git
     pushd packet_forwarder
 else
     pushd packet_forwarder
+    git fetch origin
+    git checkout legacy
     git reset --hard
-    git pull
 fi
 
 make
 
 popd
 
-# Symlink
+# Symlink poly packet forwarder
 if [ ! -d bin ]; then mkdir bin; fi
-if [ -f ./bin/semtech_pkt_fwd ]; then rm ./bin/semtech_pkt_fwd; fi
-ln -s $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/lora_pkt_fwd ./bin/semtech_pkt_fwd
-cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.basic ./bin/global_conf.json
-#cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.gps ./bin/global_conf.json
-#cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.beacon ./bin/global_conf.json
-cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
+if [ -f ./bin/ttn_pkt_fwd ]; then rm ./bin/ttn_pkt_fwd; fi
+ln -s $INSTALL_DIR/packet_forwarder/poly_pkt_fwd/poly_pkt_fwd ./bin/ttn_pkt_fwd
+cp -f ./packet_forwarder/poly_pkt_fwd/global_conf.json ./bin/global_conf.json
+cp -f ./packet_forwarder/poly_pkt_fwd/local_conf.json ./bin/local_conf.json
 
 popd
 
@@ -62,8 +64,8 @@ echo "Installation completed."
 # Start packet forwarder as a service
 cp ./reset_lgw.sh $INSTALL_DIR/bin/
 cp ./start.sh $INSTALL_DIR/bin/
-cp ./semtech.service /lib/systemd/system/
-# systemctl enable semtech.service
+cp ./ttn.service /lib/systemd/system/
+#systemctl enable ttn-gateway.service
 
 echo "The system will reboot in 5 seconds..."
 sleep 5

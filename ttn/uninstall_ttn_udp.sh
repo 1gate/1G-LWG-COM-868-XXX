@@ -17,5 +17,3 @@ systemctl disable ttn.service
 rm -rf $INSTALL_DIR
 
 echo "Uninstall completed."
-
-

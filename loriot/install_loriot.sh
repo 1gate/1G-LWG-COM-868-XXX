@@ -15,7 +15,7 @@ INSTALL_DIR="/opt/loriot"
 if [ ! -d "$INSTALL_DIR" ]; then mkdir $INSTALL_DIR; fi
 pushd $INSTALL_DIR
 
-# Get the Loriot paket forwarder
+# Get the Loriot packet forwarder
 wget -N https://eu1.loriot.io/home/gwsw/loriot-pi-3-ic880a-SPI-0-latest.bin
 chmod a+x loriot-pi-3-ic880a-SPI-0-latest.bin
 

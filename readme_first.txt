@@ -127,7 +127,7 @@ $ cd /opt/loriot/bin
 
 $ sudo ./reset_lgw.sh start 25
 
-$ sudo ./loriot_pkt_fwd
+$ sudo ./loriot_pkt_fwd -f
 
 Ctrl-C to abort
 
