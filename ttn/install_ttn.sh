@@ -42,6 +42,6 @@ cp ./start.sh $INSTALL_DIR/bin/
 cp ./ttn.service /lib/systemd/system/
 # systemctl enable ttn.service
 
-echo "The system will reboot in 5 seconds..."
-sleep 5
-shutdown -r now
+#echo "The system will reboot in 5 seconds..."
+#sleep 5
+#shutdown -r now
