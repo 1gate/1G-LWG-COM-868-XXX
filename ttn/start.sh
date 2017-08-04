@@ -18,4 +18,4 @@ while [[ $(ping -c1 google.com 2>&1 | grep " 0% packet loss") == "" ]]; do
   done
 
 # Fire up the forwarder.
-./ttn_pkt_fwd start --config "/etc/ttn/ttn_pkt_fwd.yml" --reset-pin 25 --gps-path /dev/ttyS0
+./ttn_pkt_fwd start --config /etc/ttn/ttn_pkt_fwd.yml --reset-pin 25 --gps-path /dev/ttyS0
