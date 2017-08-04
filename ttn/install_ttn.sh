@@ -16,7 +16,7 @@ if [ ! -d "$INSTALL_DIR" ]; then mkdir $INSTALL_DIR; fi
 pushd $INSTALL_DIR
 
 # Get the The Things Network packet forwarder
-wget -N https://github.com/TheThingsNetwork/packet_forwarder/releases/download/v2.0.1/imst-rpi-pktfwd.tar.gz
+wget -N https://github.com/TheThingsNetwork/packet_forwarder/releases/download/v2.0.2/imst-rpi-pktfwd.tar.gz
 tar xvf imst-rpi-pktfwd.tar.gz
 chmod a+x packet-forwarder
 
