@@ -65,6 +65,6 @@ cp ./start.sh $INSTALL_DIR/bin/
 cp ./semtech.service /lib/systemd/system/
 # systemctl enable semtech.service
 
-echo "The system will reboot in 5 seconds..."
-sleep 5
-shutdown -r now
+#echo "The system will reboot in 5 seconds..."
+#sleep 5
+#shutdown -r now
