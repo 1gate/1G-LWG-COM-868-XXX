@@ -1,10 +1,11 @@
 [Unit]
-Description=1GATE / Semtech Packet Forwarder
+Description=1GATE/Semtech Packet Forwarder
+After=network.target
 
 [Service]
 WorkingDirectory=/opt/semtech/bin/
 ExecStart=/opt/semtech/bin/start.sh
-SyslogIdentifier=1gate
+SyslogIdentifier=1GATE/Semtech Packet Forwarder
 Restart=on-failure
 RestartSec=5
 
