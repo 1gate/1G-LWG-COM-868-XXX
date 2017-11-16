@@ -51,7 +51,9 @@ ln -s $INSTALL_DIR/packet_forwarder/lora_pkt_fwd/lora_pkt_fwd ./bin/semtech_pkt_
 cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.basic ./bin/global_conf.json
 #cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.gps ./bin/global_conf.json
 #cp -f ./packet_forwarder/lora_pkt_fwd/cfg/global_conf.json.PCB_E286.EU868.beacon ./bin/global_conf.json
-sed -i -e 's/"server_address": "localhost",/"server_address": "eu.iot.semtech.cloud",/g' ./bin/global_conf.json
+sed -i -e 's/"server_address": "localhost",/"server_address": "52.18.106.103",/g' ./bin/global_conf.json
+sed -i -e 's/"serv_port_up": "1680",/"serv_port_up": "20000",/g' ./bin/global_conf.json
+sed -i -e 's/"serv_port_down": "1680",/"serv_port_down": "20000",/g' ./bin/global_conf.json
 
 cp -f ./packet_forwarder/lora_pkt_fwd/local_conf.json ./bin/local_conf.json
 
