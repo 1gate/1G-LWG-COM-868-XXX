@@ -6,7 +6,7 @@ After=network.target
 WorkingDirectory=/opt/semtech/bin/
 ExecStart=/opt/semtech/bin/start.sh
 SyslogIdentifier=1GATE/Semtech Packet Forwarder
-Restart=on-failure
+Restart=always
 RestartSec=5
 
 [Install]
